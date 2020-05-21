@@ -1,0 +1,13 @@
+body {
+  padding: 5vw;
+}
+
+pre {
+  white-space: pre-wrap;
+  max-width: 500px;
+}
+
+input {
+  display: block;
+  width: 100%;
+}
