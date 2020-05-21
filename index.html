@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+  <title>RSS reader</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body>
+  <!-- partial:index.partial.html -->
+  <div id="app">
+    <h1>{{ title }}</h1>
+
+    <nav class="navbar navbar-light bg-light form-inline">
+      <button class="btn btn-outline-success my-2 my-sm-0" name="buttonik" type="submit" v-on:click="vzostupne()">
+        Vzostupne </button>
+      <button class="btn btn-outline-success " name="buttonik1" type="submit" v-on:click="zostupne()"> Zostupne
+      </button>
+      <input class="form-control mr-auto" type="text" name="hue" placeholder="https://www.sme.sk/rss-title"
+        aria-label="Search" v-model="feed" v-on:change="changeHandler">
+    </nav>
+
+    <!-- <input type="text" v-model="feed" v-on:change="changeHandler">  my-2 my-sm-0 -->
+    <div class="container">
+      <div class="row">
+
+        <div class="mx-auto col-md-4 col-sm-12 col-12" v-for="prvok in items.items" style="margin-top: 5px; margin-bottom: 5px;">
+            <div class="card ">
+              <img :src="prvok.enclosure.link" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{prvok.title}}</h5>
+                <p class="card-text">{{prvok.description}}</p>
+                <p class="card-text">{{prvok.pubDate}}</p>
+                <a target="_blank" rel="noopener noreferrer" :href="prvok.link" class="btn btn-primary">Odkaz</a>
+              </div>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+
+    <!-- partial -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.2.1/vue-resource.min.js'></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
